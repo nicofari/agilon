@@ -12,8 +12,11 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function (request, response) {
+    var currDriver = agilonWeek.getDriverAtDate(new Date());
+    var nextDriver = agilonWeek.getNextDriver(currDriver);
     response.render('pages/index', {
-        currDriver: agilonWeek.getDriverAtDate(new Date())
+        currDriver: currDriver,
+        nextDriver: nextDriver
     });
 });
 
