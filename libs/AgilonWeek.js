@@ -30,4 +30,13 @@ AgilonWeeks.prototype.getSequence = function () {
     return ['Manu', 'Cris', 'Nik'];
 };
 
+AgilonWeeks.prototype.getNextDriver = function (driver) {
+    var seq = this.getSequence();
+    for (var i = 0; i < seq.length; i++) {
+        if (seq[i] === driver) {
+            return i < seq.length - 1 ? seq[i+1] : seq[0];
+        }
+    }
+};
+
 module.exports = new AgilonWeeks();

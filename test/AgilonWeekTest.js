@@ -21,4 +21,10 @@ describe("AgilonWeek", function () {
        
        assert.equal('Nik', target.getDriverAtDate(new Date(2015, 11, 14)));
     });
+    
+    it('should return next driver', function () {
+       assert.equal('Manu', target.getNextDriver('Nik'));
+       assert.equal('Cris', target.getNextDriver('Manu'));
+       assert.equal('Nik', target.getNextDriver('Cris'));
+    });
 });
