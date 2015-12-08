@@ -1,6 +1,7 @@
 var cool = require('cool-ascii-faces');
 var express = require('express');
 var app = express();
+var agilonWeek = require(__dirname + '/libs/AgilonWeek.js');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -11,7 +12,9 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function (request, response) {
-    response.render('pages/index');
+    response.render('pages/index', {
+        currDriver: agilonWeek.getDriverAtDate(new Date())
+    });
 });
 
 app.get('/cool', function (request, response) {
